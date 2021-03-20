@@ -6,8 +6,13 @@ async function getPlayers () {
 
     const playersList = document.getElementById('players')
 
-    console.log(response);
-    console.log(playersList)
+    for (const player of response.data) {
+        console.log("Player:", player)
+        const listItem = document.createElement('li');
+
+        listItem.textContent = `${player.name} - ${player.color}`;
+        playersList.appendChild(listItem);
+    }
 }
 getPlayers();
 
@@ -18,4 +23,4 @@ async function getPlayer(p) {
 
     console.log(response.data)
 }
-getPlayer(2);
+// getPlayer(2);
